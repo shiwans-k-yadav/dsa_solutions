@@ -1,0 +1,34 @@
+class Solution {
+public:
+    string reverseWords(string s) {
+        int n  = s.length();
+        vector<string> s1;
+        string word="";
+        int flag=-1;
+        for(int i=0;i<n;i++){
+            if(s[i]!=' '){
+                word+=s[i];
+            }
+            else{
+                if(word!=""){
+                    s1.push_back(word);
+                    word="";
+                }
+            }
+        }
+        //last word to push karne ke liye
+        if(word != "") {
+            s1.push_back(word);
+        }
+
+
+        string ans="";
+        reverse(s1.begin(),s1.end());
+        for(int i=0;i<s1.size();i++){
+            ans+=s1[i];
+            ans+=" ";
+        }
+        ans.pop_back();
+        return ans;
+    }
+};
